@@ -12,6 +12,9 @@ class Producto:
         print(f"Nombre: {self.nombre}")
         print(f"Precio: {self.precio}")
         print(f"Stock: {self.stock}")
+        
+    def calcular_total(self, cantidad):
+        return self.precio * cantidad
 
 
 class Inventario:
@@ -40,7 +43,13 @@ class Inventario:
         print("Informe de inventario:")
         for producto in self.productos:
             producto.mostrar_informacion()
-
+            
+    #Metodo Nuevo 
+    def buscar_producto_por_nombre(self, nombre):
+        for producto in self.productos:
+            if producto.nombre.lower() == nombre.lower():
+                return producto
+        return None 
 
 class Venta:
     def __init__(self, inventario):
@@ -68,9 +77,9 @@ class Venta:
 # Ejemplo de uso
 inventario = Inventario()
 
-producto1 = Producto("001", "Camiseta", 25.99, 10)
-producto2 = Producto("002", "Pantalón", 39.99, 5)
-producto3 = Producto("003", "Zapatos", 79.99, 3)
+producto1 = Producto("001", "Camiseta", 60000, 10)
+producto2 = Producto("002", "Pantalón", 120000, 5)
+producto3 = Producto("003", "Zapatos", 150000, 3)
 
 inventario.agregar_producto(producto1)
 inventario.agregar_producto(producto2)
@@ -83,7 +92,14 @@ venta = Venta(inventario)
 venta.agregar_producto("001", 2)
 venta.agregar_producto("002", 1)
 venta.agregar_producto("003", 1)
-
 venta.generar_factura()
 
-inventario.generar_informe_inventario()
+#Implementacion metodo nuevo
+producto_encontrado = inventario.buscar_producto_por_nombre("Zapatos")
+if producto_encontrado:
+    print("Producto Encontrado:" )
+    producto_encontrado.mostrar_informacion()
+else:
+    print("Producto no encontrado.")
+
+
