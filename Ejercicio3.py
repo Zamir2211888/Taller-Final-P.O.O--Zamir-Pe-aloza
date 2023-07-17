@@ -56,7 +56,7 @@ class Reserva:
 vuelo1 = Vuelo("001", "Ciudad A", "Ciudad B", 100)
 vuelo2 = Vuelo("002", "Ciudad B", "Ciudad C", 200)
 
-pasajero1 = Pasajero("Zamir", "David")
+pasajero1 = Pasajero("Zamir", "Granados")
 pasajero2 = Pasajero("Patricia", "Peñaloza")
 
 reserva1 = vuelo1.realizar_reserva(pasajero1, "1A")
