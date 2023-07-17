@@ -28,6 +28,15 @@ class Vuelo:
             return reserva
         else:
             return None
+        
+    #Metodo Nuevo     
+    def mostrar_informacion(self):
+        print(f"Número de vuelo: {self.numero}")
+        print(f"Origen: {self.origen}")
+        print(f"Destino: {self.destino}")
+        print(f"Capacidad: {self.capacidad}")
+        print(f"Asientos disponibles: {self.asientos_disponibles}")
+
 
 
 class Pasajero:
@@ -47,8 +56,8 @@ class Reserva:
 vuelo1 = Vuelo("001", "Ciudad A", "Ciudad B", 100)
 vuelo2 = Vuelo("002", "Ciudad B", "Ciudad C", 200)
 
-pasajero1 = Pasajero("John", "Doe")
-pasajero2 = Pasajero("Jane", "Smith")
+pasajero1 = Pasajero("Zamir", "David")
+pasajero2 = Pasajero("Patricia", "Peñaloza")
 
 reserva1 = vuelo1.realizar_reserva(pasajero1, "1A")
 if reserva1:
@@ -70,3 +79,6 @@ else:
 
 print(f"Asientos disponibles en vuelo 1: {vuelo1.mostrar_asientos_disponibles()}")
 print(f"Asientos disponibles en vuelo 2: {vuelo2.mostrar_asientos_disponibles()}")
+
+vuelo1.mostrar_informacion()
+vuelo2.mostrar_informacion()
